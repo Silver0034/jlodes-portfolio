@@ -1,0 +1,134 @@
+---
+import {Image} from 'astro:assets';
+const images = await Astro.glob('../../public/logos/**/*.{png,jpg,jpeg}').then(files => {return files.map(file => file.default)})
+
+function getIndexFromSRC(src: string) {
+    const string = src.split('/').pop()?.split(' ')[0] ?? '0';
+    const index = parseInt(string);
+    return index;
+}
+
+// sort images by src
+images.sort((a, b) => {
+    const indexA = getIndexFromSRC(a.src);
+    const indexB = getIndexFromSRC(b.src);
+    if (indexA < indexB) {
+        return -1
+    }
+    if (indexA > indexB) {
+        return 1
+    }
+    return 0
+})
+---
+
+<div class="marquee">
+    <slot />
+    <div class="marquee__inner">
+        {
+            images.map(image => (
+                <Image
+                    src={image}
+                    alt={image.src.split('- ').pop().split('.')[0]}
+                    height={image.height}
+                    width={image.width}
+                    loading="eager"
+                />
+            ))
+        }
+    </div>
+</di>
+
+<style lang="scss">
+    .marquee {
+        max-width: 100%;
+        margin: 0 auto;
+        --gap: 2rem;
+
+        &:not([data-animated="true"]) {
+            .marquee__inner {
+                max-width: 100%;;
+                overflow: auto;
+                padding-bottom: var(--spacing--medium);
+                overflow: scroll;
+                overflow-y: hidden;
+
+                // snap scroll to start of each image
+                scroll-snap-type: x mandatory;
+
+                * {
+                    scroll-snap-align: start;
+                }
+
+                &::-webkit-scrollbar {
+                    width: 1em;
+                    height: 1em;
+
+                    &-track {
+                        background-color: rgb(var(--gray-light), 0.15);
+                        border-radius: 10px;
+                    }
+
+                    &-thumb {
+                        border-radius: 10px;
+                        background-color: rgb(var(--gray));
+                    }
+                }
+            }
+            
+        }
+
+        &__inner {
+                display: flex;
+                width: max-content;
+                white-space: nowrap;
+                align-items: center;
+                gap: var(--gap);
+
+                 img {
+                    margin: 0;
+                    width: 150px;
+                    height: 150px;
+                    aspect-ratio: auto;
+                    object-fit: contain;
+                }
+        }
+
+        &[data-animated="true"] {
+            overflow: hidden;
+            padding-bottom: 0.5em;
+
+            .marquee__inner {
+                animation: marquee 60s linear infinite;
+            }
+        }
+    }
+
+    @keyframes marquee {
+        to {
+            transform: translateX(calc(-50% - calc(var(--gap) / 2)));
+        }
+    }
+</style>
+
+<script>
+    
+
+    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        addMarqueeAnimation();
+    }
+
+    function addMarqueeAnimation() {
+    const marquees = document.querySelectorAll('.marquee');
+    marquees.forEach(marquee => {
+        marquee.setAttribute('data-animated', 'true')
+
+        // duplicate the content inside the marquee__inner
+        const marqueeInner = marquee.querySelector('.marquee__inner');
+        if (!marqueeInner) return;
+
+        const marqueeInnerContent = marqueeInner.innerHTML;
+        marqueeInner.innerHTML = marqueeInnerContent + marqueeInnerContent;
+    });
+    }
+</script>

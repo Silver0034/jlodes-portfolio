@@ -1,0 +1,43 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+
+import LogoMarquee from '../components/LogoMarquee.astro';
+
+const yearsOfExperience = new Date().getFullYear() - 2018;
+
+---
+<style>
+    h1 {
+        text-align: center;
+    }
+</style>
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<Header title={SITE_TITLE} />
+		<main>
+			<section>
+                <h1>Attributions</h1>
+
+                <ul>
+                    <li>Home Page:
+                        <ul>
+                            <li><a href="https://www.flickr.com/photos/justininsd/6922035149">"The Local Buca"</a> by Justin Brown is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/2.0/">CC BY 2.0.</a></li>
+                            <li><a href="https://www.flickr.com/photos/quintanomedia/52713318938">"Mr. Beast Burger - American Dream Mall East Rutherford New Jersey"</a> by Anthony Quintano is licensed under <a href="https://creativecommons.org/licenses/by/2.0/?ref=openverse">CC BY 2.0.</a></li>
+                            <li><a href="https://www.flickr.com/photos/perspective/256051938">"01.Bertucci's.DCS.WDC.26sep06"</a> by Elvert Barnes is licensed under <a href="https://creativecommons.org/licenses/by/2.0/">CC BY 2.0.</a></li>
+                            <li><a href="https://creativecommons.org/licenses/by/2.0/">"Mr. Beast Burger Restaurant in American Dream Mall East Rutherford New Jersey"</a> by Anthony Quintano is licensed under <a href="https://creativecommons.org/licenses/by/2.0/?ref=openverse">CC BY 2.0.</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+	
+		</main>
+		<Footer />
+	</body>
+</html>

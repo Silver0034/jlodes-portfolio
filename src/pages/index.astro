@@ -1,10 +1,23 @@
 ---
+import { Image } from 'astro:assets';
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
+import Main from '../components/Main.astro';
 import Footer from '../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
----
+import { SITE_TITLE, SITE_DESCRIPTION, EXPERIENCE_START_YEAR } from '../consts';
 
+import LogoMarquee from '../components/LogoMarquee.astro';
+
+import imageHeroBackground1 from '../../public/jon-tyson-JCdVuOa6p48-unsplash.jpg';
+import imageHeroBackground2 from '../../public/pexels-cottonbro-studio-5081930.jpg';
+import imageHeroBackground3 from '../../public/52713318938_c1572c90f9_k.jpg';
+import imageHeroBackground4 from '../../public/256051938_915676e537_k.jpg';
+
+import imageProjectsBackground from '../../public/Mr._Beast_Burger_Restaurant_in_American_Dream_Mall_East_Rutherford_New_Jersey.jpg';
+
+const yearsOfExperience = new Date().getFullYear() - EXPERIENCE_START_YEAR;
+
+---
 <!doctype html>
 <html lang="en">
 	<head>
@@ -12,39 +25,207 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 	</head>
 	<body>
 		<Header title={SITE_TITLE} />
-		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This
-				template serves as a lightweight, minimally-styled starting point for anyone looking to build
-				a personal website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/pages/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to <a href="https://docs.astro.build/"
-					>read the docs
-				</a> or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out <a
-					href="https://github.com/Charca/astro-blog-template"
-					>astro-blog-template
-				</a> by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
-		</main>
+		<Main>
+			<section id="hero" class="width-full">
+				<style lang="scss">
+					#hero {
+						position: relative;
+						display: flex;
+						flex-direction: column;
+						justify-content: center;
+						align-items: center;
+						text-align: center;
+						width: 100%;
+						z-index: 1;
+						height: 450px;
+						overflow: hidden;
+						--mask:
+						radial-gradient(4.47em at 50% calc(100% - 6.00em),#000 99%,#0000 101%) calc(50% - 4em) 0/8em 100%,
+						radial-gradient(4.47em at 50% calc(100% + 4.00em),#0000 99%,#000 101%) 50% calc(100% - 2em)/8em 100% repeat-x;
+						-webkit-mask: var(--mask);
+						mask: var(--mask);
+						&::before {
+							content: '';
+							position: absolute;
+							inset: 0;
+							background-color: var(--accent);
+							opacity: 0.75;
+							z-index: -1;
+						}
+
+						p {
+							margin-top: 4em;
+							margin-bottom: 0;
+						}
+
+						.background {
+							position: absolute;
+							inset: 0;
+							z-index: -2;
+							height: 100%;
+							object-fit: cover;
+							opacity: 0;
+						}
+
+						@keyframes slideshow {
+							0%, 100% {
+								opacity: 1;
+								transform: scale(1);
+							}
+							25%, 75% {
+								opacity: 0;
+								transform: scale(1.1);
+							}
+						}
+
+						.background {
+							--delay: 0s;
+							--duration: 30s;
+							--offset: calc(-1 * calc(var(--duration) / 4));
+							animation: slideshow var(--duration) ease-in-out infinite;
+							animation-delay: var(--delay);
+							&:nth-child(2) {
+								--delay: var(--offset);
+							}
+							&:nth-child(3) {
+								--delay: calc(var(--offset) * 2);
+							}
+							&:nth-child(4) {
+								--delay: calc(var(--offset) * 3);
+							}
+						}
+					}
+				</style>
+				<h1>
+					Digital Creations
+					<br />
+					Real Experiences
+				</h1>
+
+				<p>See more about Jacob Lodes</p>
+				<a href="#brands" class="hover-grow">
+					<img class="animate-float" src="/down-arrow.svg" alt="Scroll down">
+				</a>
+
+				<div>
+					<Image
+						src={imageHeroBackground1}
+						alt='A Planet Hollywood Sign'
+						width={1920}
+						loading="eager"
+						class="background"
+						/>
+					<Image
+						src={imageHeroBackground2}
+						alt='Hands holding a phone displaying the TikTok app'
+						width={1920}
+						loading="eager"
+						class="background"
+					/>
+					<Image
+						src={imageHeroBackground3}
+						alt='The interior of MrBeast Burger in the American Dream Mall'
+						width={1920}
+						loading="eager"
+						class="background"
+					/>
+					<Image
+						src={imageHeroBackground4}
+						alt="The exterior of a Bertucci's"
+						width={1920}
+						loading="eager"
+						class="background"
+						/>
+				</div>
+			</section>
+			
+			<section id="brands" class="width-full">
+				<style lang="scss">
+					#brands {
+						position: relative;
+						display: block;
+						overflow: auto;
+						img {
+							display: block;
+							margin: 0 auto;
+						}
+						h2 {
+							text-align: center;
+						}
+					}
+				</style>
+				<img src="/ancient-shellfish.svg" alt="The shell of an ancient shellfish">
+				<h2>Brands I've Worked On</h2>
+				<br/>
+				<LogoMarquee />
+			</section>
+
+			<section id="about">
+				<style lang="scss">
+					#about {
+						img {
+							display: block;
+							margin: 0 auto;
+						}
+						h2 {
+							text-align: center;
+						}
+					}
+				</style>
+				<img src="/triceratops.svg" alt="Triceratops">
+				<h2>Who is Jacob Lodes?</h2>
+				<p>Jacob Lodes, a seasoned full-stack developer, currently spearheads all development initiatives at <a href="https://www.earlenterprise.com" target="_blank" title="Earl Enterprises (Opens in a new tab)" aria-label="Earl Enterprises (Opens in a new tab)">Earl Enterprises</a> and <a href="https://joinvdc.com/" target="_blank" title="Virtual Dining Concepts (Opens in a new tab)" aria-label="Virtual Dining Concepts (Opens in a new tab)">Virtual Dining Concepts</a>. These companies are the driving force behind renowned food entertainment brands like MrBeast Burger, Planet Hollywood, Buca di Beppo, Chicken Guy!, NASCAR Refuel, and Barstool Sports' Pardon My Cheesesteak.</p>
+					<p>With a focus on PHP and JavaScript, Jacob Lodes stands out for his proficiency in developing cutting-edge WordPress plugins and themes. Beyond his core expertise, he's delved into crafting Discord Bots and Chrome Plugins. Armed with {yearsOfExperience} years of professional experience and a Bachelor's degree in Digital Media: Web Design from the University of Central Florida, Jacob showcases a versatile skill set and a passion for pushing boundaries in his field.</p>
+			</section>
+
+			<section id="open-to-projects" class="width-full">
+				<style lang="scss">
+					#open-to-projects {
+						position: relative;
+						text-align: center;
+						position: relative;
+						z-index: 1;
+
+						&::before {
+							content: '';
+							position: absolute;
+							inset: 0;
+							background-color: rgb(var(--gray-dark));
+							opacity: 0.85;
+							z-index: -1;
+						}
+
+						* {
+							color: var(--background);
+						}
+
+						a:hover {
+							color: rgb(var(--accent));
+						}
+
+						.background {
+							position: absolute;
+							inset: 0;
+							z-index: -2;
+							height: 100%;
+							object-fit: cover;
+						}
+					}
+				</style>
+				<img src="/plesiosaurus.svg" alt="Plesiosaurus">
+				<h2>Open to Projects</h2>
+				<p><a class="animate-float" href="mailto:contact@jlodes.com">Email me</a>, or reach out on <a class="animate-float" href="https://www.linkedin.com/in/jacoblodes/" aria-label="LinkedIn (Opens in a new tab)" target="_blank">LinkedIn</a></p>
+
+				<Image
+                    src={imageProjectsBackground}
+                    alt='Mr. Beast Burger Restaurant in American Dream Mall East Rutherford New Jersey'
+					width={1920}
+                    loading="eager"
+					class="background"
+                />
+			</section>
+	
+		</Main>
 		<Footer />
 	</body>
 </html>

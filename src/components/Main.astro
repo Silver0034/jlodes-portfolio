@@ -1,0 +1,46 @@
+---
+import MouseFollowCanvas from "./MouseFollowCanvas.astro";
+---
+<main id="content">
+	<slot />
+	<a id="back-to-top" href="#content" class="hidden animate-float hover-grow">
+		<img src="/up-arrow.svg" alt="Scroll to top" />
+	</a>
+	<MouseFollowCanvas />
+</main>
+
+<style lang="scss">
+	#back-to-top {
+		position: sticky;
+		bottom: 0;
+		right: 1em;
+		height: 0;
+		text-align: right;
+		z-index: 2;
+		transition: opacity 0.25s ease-in-out;
+
+		img {
+			transform: translateY(calc(-100% - 1em));
+			background-color: rgb(255 255 255 / 50%);
+			border-radius: 50%;
+		}
+
+		&.hidden {
+			opacity: 0;
+		}
+	}
+</style>
+<script>
+let backToTopLink = document.getElementById('back-to-top');
+
+function handleScroll() {	
+	if (!backToTopLink) return
+	if (window.scrollY > 250) {
+		backToTopLink.classList.remove('hidden');
+	} else {
+		backToTopLink.classList.add('hidden');
+	}
+}
+
+window.addEventListener('scroll', handleScroll);
+</script>
