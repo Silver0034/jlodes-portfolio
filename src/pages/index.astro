@@ -84,6 +84,10 @@ const yearsOfExperience = new Date().getFullYear() - EXPERIENCE_START_YEAR;
 							--offset: calc(-1 * calc(var(--duration) / 4));
 							animation: slideshow var(--duration) ease-in-out infinite;
 							animation-delay: var(--delay);
+							opacity: 0;
+							&:nth-child(1) {
+								opacity: 1;
+							}
 							&:nth-child(2) {
 								--delay: var(--offset);
 							}
@@ -104,35 +108,35 @@ const yearsOfExperience = new Date().getFullYear() - EXPERIENCE_START_YEAR;
 
 				<p>See more about Jacob Lodes</p>
 				<a href="#brands" class="hover-grow">
-					<img class="animate-float" src="/down-arrow.svg" alt="Scroll down">
+					<img class="animate-float" src="/down-arrow.svg" alt="Scroll down" height="48" width="48">
 				</a>
 
 				<div>
 					<Image
 						src={imageHeroBackground1}
 						alt='A Planet Hollywood Sign'
-						width={1920}
+						widths={[240, 540, 720, 1080, 1920]}
 						loading="eager"
 						class="background"
 						/>
 					<Image
 						src={imageHeroBackground2}
 						alt='Hands holding a phone displaying the TikTok app'
-						width={1920}
-						loading="eager"
+						widths={[240, 540, 720, 1080, 1920]}
+						loading="lazy"
 						class="background"
 					/>
 					<Image
 						src={imageHeroBackground3}
 						alt='The interior of MrBeast Burger in the American Dream Mall'
-						width={1920}
-						loading="eager"
+						widths={[240, 540, 720, 1080, 1920]}
+						loading="lazy"
 						class="background"
 					/>
 					<Image
 						src={imageHeroBackground4}
 						alt="The exterior of a Bertucci's"
-						width={1920}
+						widths={[240, 540, 720, 1080, 1920]}
 						loading="eager"
 						class="background"
 						/>
@@ -154,7 +158,7 @@ const yearsOfExperience = new Date().getFullYear() - EXPERIENCE_START_YEAR;
 						}
 					}
 				</style>
-				<img src="/ancient-shellfish.svg" alt="The shell of an ancient shellfish">
+				<img src="/ancient-shellfish.svg" alt="The shell of an ancient shellfish" height="48" width="48">
 				<h2>Brands I've Worked On</h2>
 				<br/>
 				<LogoMarquee />
@@ -172,7 +176,7 @@ const yearsOfExperience = new Date().getFullYear() - EXPERIENCE_START_YEAR;
 						}
 					}
 				</style>
-				<img src="/triceratops.svg" alt="Triceratops">
+				<img src="/triceratops.svg" alt="Triceratops" height="48" width="48">
 				<h2>Who is Jacob Lodes?</h2>
 				<p>Jacob Lodes, a seasoned full-stack developer, currently spearheads all development initiatives at <a href="https://www.earlenterprise.com" target="_blank" title="Earl Enterprises (Opens in a new tab)" aria-label="Earl Enterprises (Opens in a new tab)">Earl Enterprises</a> and <a href="https://joinvdc.com/" target="_blank" title="Virtual Dining Concepts (Opens in a new tab)" aria-label="Virtual Dining Concepts (Opens in a new tab)">Virtual Dining Concepts</a>. These companies are the driving force behind renowned food entertainment brands like MrBeast Burger, Planet Hollywood, Buca di Beppo, Chicken Guy!, NASCAR Refuel, and Barstool Sports' Pardon My Cheesesteak.</p>
 					<p>With a focus on PHP and JavaScript, Jacob Lodes stands out for his proficiency in developing cutting-edge WordPress plugins and themes. Beyond his core expertise, he's delved into crafting Discord Bots and Chrome Plugins. Armed with {yearsOfExperience} years of professional experience and a Bachelor's degree in Digital Media: Web Design from the University of Central Florida, Jacob showcases a versatile skill set and a passion for pushing boundaries in his field.</p>
@@ -212,14 +216,14 @@ const yearsOfExperience = new Date().getFullYear() - EXPERIENCE_START_YEAR;
 						}
 					}
 				</style>
-				<img src="/plesiosaurus.svg" alt="Plesiosaurus">
+				<img src="/plesiosaurus.svg" alt="Plesiosaurus" height="48" width="48">
 				<h2>Open to Projects</h2>
 				<p><a class="animate-float" href="mailto:contact@jlodes.com">Email me</a>, or reach out on <a class="animate-float" href="https://www.linkedin.com/in/jacoblodes/" aria-label="LinkedIn (Opens in a new tab)" target="_blank">LinkedIn</a></p>
 
 				<Image
                     src={imageProjectsBackground}
                     alt='Mr. Beast Burger Restaurant in American Dream Mall East Rutherford New Jersey'
-					width={1920}
+					widths={[240, 540, 720, 1080, 1920]}
                     loading="eager"
 					class="background"
                 />

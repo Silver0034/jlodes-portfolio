@@ -3,18 +3,22 @@ import MouseFollowCanvas from "./MouseFollowCanvas.astro";
 ---
 <main id="content">
 	<slot />
-	<a id="back-to-top" href="#content" class="hidden animate-float hover-grow">
-		<img src="/up-arrow.svg" alt="Scroll to top" />
+	<a id="back-to-top" href="#content" class="hidden hover-grow">
+		<img src="/up-arrow.svg" class="animate-float" alt="Scroll to top" />
 	</a>
 	<MouseFollowCanvas />
 </main>
 
 <style lang="scss">
+	#content {
+		margin-bottom: -48px;
+	}
 	#back-to-top {
 		position: sticky;
-		bottom: 0;
-		right: 1em;
-		height: 0;
+		bottom: 1em;
+		left: calc(calc(100% - 48px) - 1em);
+		height: 48px;
+		width: 48px;
 		text-align: right;
 		z-index: 2;
 		transition: opacity 0.25s ease-in-out;
