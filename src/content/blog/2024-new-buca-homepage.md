@@ -1,6 +1,6 @@
 ---
 title: 'New Year, New Buca di Beppo: A Homepage Redesign Journey'
-description: 'Explore the transformation of Buca di Beppo\'s website homepage in the dawn of 2024.'
+description: "Explore the transformation of Buca di Beppo's website homepage in the dawn of 2024."
 pubDate: 'Jul 23 2024'
 heroImage: ''
 ---
