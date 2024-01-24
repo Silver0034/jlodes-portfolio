@@ -71,10 +71,14 @@ main {
 	--column-width: calc(var(--max-width) / 2 - var(--gap));
 	display: grid;
 	margin: auto;
+	grid-template-columns: 1fr var(--column-width) var(--column-width) 1fr;
+	max-width: 100%;
 }
 
 main > * {
 	grid-column: 2 / 4;
+	margin-block-start: 1em;
+	margin-block-end: 0;
 }
 
 main .width-full {
@@ -87,16 +91,11 @@ section {
 
 @media (max-width: 720px) {
 	main {
-		grid-template-columns: 1em auto auto 1em;
-	}
-	main .width-full {
-		padding-inline: 1em;
-	}
-}
+		--max-width: calc(calc(100% - 1em));
 
-@media screen and (min-width: 721px) {
-	main {
-		grid-template-columns: 1fr var(--column-width) var(--column-width) 1fr;
+		.width-full {
+			padding-inline: 1em;
+		}
 	}
 }
 
@@ -109,7 +108,6 @@ h6 {
 	font-family: 'Yeseva One', serif;
 	margin: 0 0 0.5rem 0;
 	color: rgb(var(--black));
-	text-wrap: balance;
 	line-height: 1em;
 }
 /* major third modular scale */
@@ -183,12 +181,6 @@ a:focus {
 	100% {
 		text-underline-offset: 0.4em;
 	}
-}
-p {
-	margin-bottom: 1em;
-}
-.prose p {
-	margin-bottom: 2em;
 }
 textarea {
 	width: 100%;
