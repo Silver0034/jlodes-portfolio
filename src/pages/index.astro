@@ -48,7 +48,7 @@ const yearsOfExperience = new Date().getFullYear() - EXPERIENCE_START_YEAR;
 							content: '';
 							position: absolute;
 							inset: 0;
-							background-color: var(--accent);
+							background-color: hsl(var(--color-primary));
 							opacity: 0.75;
 							z-index: -1;
 						}
@@ -209,11 +209,11 @@ const yearsOfExperience = new Date().getFullYear() - EXPERIENCE_START_YEAR;
 						}
 
 						* {
-							color: var(--background);
+							color: hsl(var(--color-lighter));
 						}
 
 						a:hover {
-							color: rgb(var(--accent));
+							color: hsl(var(--color-primary));
 						}
 
 						.background {

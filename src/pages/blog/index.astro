@@ -64,11 +64,11 @@ const posts = (await getCollection('blog')).sort(
 			}
 			.date {
 				margin: 0;
-				color: rgb(var(--gray));
+				color: hsl(var(--color-tertiary));
 			}
 			ul li a:hover h4,
 			ul li a:hover .date {
-				color: rgb(var(--accent));
+				color: hsl(var(--color-primary));
 			}
 			ul a:hover img {
 				box-shadow: var(--box-shadow);
