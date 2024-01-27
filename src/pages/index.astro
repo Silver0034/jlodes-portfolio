@@ -18,6 +18,7 @@ import imageProjectsBackground from '../../public/Mr._Beast_Burger_Restaurant_in
 const yearsOfExperience = new Date().getFullYear() - EXPERIENCE_START_YEAR;
 
 ---
+
 <!doctype html>
 <html lang="en">
 	<head>
@@ -44,11 +45,12 @@ const yearsOfExperience = new Date().getFullYear() - EXPERIENCE_START_YEAR;
 						radial-gradient(4.47em at 50% calc(100% + 4.00em),#0000 99%,#000 101%) 50% calc(100% - 2em)/8em 100% repeat-x;
 						-webkit-mask: var(--mask);
 						mask: var(--mask);
+						margin-top: 0;
 						&::before {
 							content: '';
 							position: absolute;
 							inset: 0;
-							background-color: hsl(var(--color-primary));
+							background-color: hsl(var(--color-tertiary));
 							opacity: 0.75;
 							z-index: -1;
 						}
@@ -117,8 +119,15 @@ const yearsOfExperience = new Date().getFullYear() - EXPERIENCE_START_YEAR;
 
 				<p>See more about Jacob Lodes</p>
 				<a href="#brands" class="hover-grow">
-					<img class="animate-float" src="/down-arrow.svg" alt="Scroll down" height="48" width="48">
-				</a>
+					<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Scroll down">
+						<mask id="mask0_3_258" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="48" height="48">
+						<rect width="48" height="48" fill="currentColor"/>
+						</mask>
+						<g mask="url(#mask0_3_258)">
+						<path d="M23.45 29.15C23.6167 29.3167 23.8 29.4 24 29.4C24.2 29.4 24.3833 29.3167 24.55 29.15L30.05 23.65C30.2833 23.4167 30.3333 23.1417 30.2 22.825C30.0667 22.5083 29.8333 22.35 29.5 22.35H18.45C18.1167 22.35 17.8917 22.5083 17.775 22.825C17.6583 23.1417 17.7167 23.4167 17.95 23.65L23.45 29.15ZM24 44C21.2667 44 18.6833 43.475 16.25 42.425C13.8167 41.375 11.6917 39.9417 9.875 38.125C8.05833 36.3083 6.625 34.1833 5.575 31.75C4.525 29.3167 4 26.7333 4 24C4 21.2333 4.525 18.6333 5.575 16.2C6.625 13.7667 8.05833 11.65 9.875 9.85C11.6917 8.05 13.8167 6.625 16.25 5.575C18.6833 4.525 21.2667 4 24 4C26.7667 4 29.3667 4.525 31.8 5.575C34.2333 6.625 36.35 8.05 38.15 9.85C39.95 11.65 41.375 13.7667 42.425 16.2C43.475 18.6333 44 21.2333 44 24C44 26.7333 43.475 29.3167 42.425 31.75C41.375 34.1833 39.95 36.3083 38.15 38.125C36.35 39.9417 34.2333 41.375 31.8 42.425C29.3667 43.475 26.7667 44 24 44ZM24 41C28.7333 41 32.75 39.3417 36.05 36.025C39.35 32.7083 41 28.7 41 24C41 19.2667 39.35 15.25 36.05 11.95C32.75 8.65 28.7333 7 24 7C19.3 7 15.2917 8.65 11.975 11.95C8.65833 15.25 7 19.2667 7 24C7 28.7 8.65833 32.7083 11.975 36.025C15.2917 39.3417 19.3 41 24 41Z" fill="#FF686B"/>
+						</g>
+					</svg>
+			</a>
 
 				<div>
 					<Image
@@ -203,7 +212,7 @@ const yearsOfExperience = new Date().getFullYear() - EXPERIENCE_START_YEAR;
 							content: '';
 							position: absolute;
 							inset: 0;
-							background-color: rgb(var(--gray-dark));
+							background-color: hsl(var(--color-primary));
 							opacity: 0.85;
 							z-index: -1;
 						}
@@ -228,6 +237,7 @@ const yearsOfExperience = new Date().getFullYear() - EXPERIENCE_START_YEAR;
 				<img src="/plesiosaurus.svg" alt="Plesiosaurus" height="48" width="48">
 				<h2>Open to Projects</h2>
 				<p><a class="animate-float" href="mailto:contact@jlodes.com">Email me</a>, or reach out on <a class="animate-float" href="https://www.linkedin.com/in/jacoblodes/" aria-label="LinkedIn (Opens in a new tab)" target="_blank">LinkedIn</a></p>
+				<p>Visit my <a href="/blog/">Blog</a> to view some of my past projects</p>
 
 				<Image
                     src={imageProjectsBackground}
@@ -242,3 +252,9 @@ const yearsOfExperience = new Date().getFullYear() - EXPERIENCE_START_YEAR;
 		<Footer />
 	</body>
 </html>
+
+<style is:global>
+	footer.footer {
+		margin-top: 0;
+	}
+</style>

@@ -2,7 +2,7 @@
 title: 'Group Fitness Calendar'
 description: 'Crafted a dynamic PHP, JavaScript, and CSS calendar'
 pubDate: 'Jul 14 2021'
-heroImage: '/group-fitness-calendar-thumbnail.png'
+heroImage: '/post-assets/group-fitness-calendar-thumbnail.png'
 ---
 
 I built this calendar in PHP, JavaScript, and CSS using an existing calendar that was initially designed by our Marketing Department.
@@ -13,4 +13,4 @@ The calendar was built as a shortcode section so it can be included on any page.
 
 While logged in you can use the buttons on individual upcoming entries to reserve a spot in the class or cancel a reservation if you are already enrolled.
 
-![The MVP Group Fitness Calendar](/group-fitness-calendar.png)
+![The MVP Group Fitness Calendar](/post-assets/group-fitness-calendar.png)

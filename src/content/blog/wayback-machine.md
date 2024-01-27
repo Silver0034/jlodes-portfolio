@@ -1,8 +1,8 @@
 ---
-title: 'A Love Letter to the Internet Archive WayBack Machine'
+title: "A Love Letter to Internet Archive's WayBack Machine"
 description: ''
-pubDate: 'Jul 23 2024'
-heroImage: ''
+pubDate: 'Jan 23 2024'
+heroImage: '/post-assets/wayback-machine.png'
 ---
 
 ## Introduction
@@ -33,4 +33,4 @@ Dear WayBack Machine, you're not just a tool; you're a digital love affair. You'
 
 With digital love, Jacob Lodes
 
-If you are interested in learning more about the WayBack Machine, check out their website [here](https://archive.org/web/).
+If you are interested in learning more about the WayBack Machine, check out <a href="https://archive.org/web/">the WayBack Machine here (opens in a new tab)</a>.

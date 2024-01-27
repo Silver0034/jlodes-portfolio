@@ -1,8 +1,8 @@
 ---
 title: 'Running a React App Through WordPress'
 description: ''
-pubDate: 'Jul 23 2024'
-heroImage: ''
+pubDate: 'Jan 26 2024'
+heroImage: '/post-assets/react+wordpress.png'
 ---
 
 In this tutorial, we will be exploring how to run a React app through WordPress. This tutorial assumes that you have a basic understanding of React and familiarity with PHP and the way WordPress Core works.

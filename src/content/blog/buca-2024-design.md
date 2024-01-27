@@ -1,8 +1,8 @@
 ---
 title: 'New Year, New Buca di Beppo: A Homepage Redesign Journey'
 description: "Explore the transformation of Buca di Beppo's website homepage in the dawn of 2024."
-pubDate: 'Jul 23 2024'
-heroImage: ''
+pubDate: 'Jan 27 2024'
+heroImage: '/post-assets/buca-homepage-2024.png'
 ---
 
 In the dynamic landscape of web design, the dawn of 2024 marked a significant evolution for Buca di Beppo's homepage. This transformation, undertaken with a strategic approach, aligns user experience with technical sophistication.
