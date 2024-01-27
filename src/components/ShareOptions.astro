@@ -105,10 +105,16 @@
 	if (!document.body.classList.contains("shareOptionsListener")) {
 		document.body.classList.add("shareOptionsListener");
 		document.body.addEventListener("click", function(e) {
-			if (!e.target) return;
+			const target = (e.target as HTMLElement)
+
+			if (!target) return;
 			// Listen for opening / closing share options
-			if (e.target.closest(".shareOptionsTrigger")) {
-				e.target.closest(".shareOptionsTrigger").nextElementSibling.classList.toggle("active");
+			if (target.closest(".shareOptionsTrigger")) {
+				const trigger = target.closest(".shareOptionsTrigger")
+				if (!trigger) return;
+				const triggerSibling = trigger.nextElementSibling;
+				if (!triggerSibling) return;
+				triggerSibling.classList.toggle("active");
 			} else {
 				document.querySelectorAll(".shareOptions .active").forEach(function(el) {
 					el.classList.remove("active");
@@ -116,22 +122,22 @@
 			}
 
 			// Listen for copying the link
-			if (e.target.closest(".shareOptions .copy")) {
+			if (target.closest(".shareOptions .copy")) {
 				navigator.clipboard.writeText(window.location.href);
 			}
 
 			// Listen for sharing on twitter
-			if (e.target.closest(".shareOptions .twitter")) {
+			if (target.closest(".shareOptions .twitter")) {
 				window.open("https://twitter.com/intent/tweet?text=" + encodeURIComponent(document.title) + "&url=" + encodeURIComponent(window.location.href), 'mywindow', 'width=350,height=500');
 			}
 
 			// Listen for sharing on facebook
-			if (e.target.closest(".shareOptions .facebook")) {
+			if (target.closest(".shareOptions .facebook")) {
 				window.open("https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(window.location.href), 'mywindow', 'width=350,height=500');
 			}
 
 			// Listen for sharing on linkedin
-			if (e.target.closest(".shareOptions .linkedin")) {
+			if (target.closest(".shareOptions .linkedin")) {
 				window.open("https://www.linkedin.com/sharing/share-offsite/?url=" + encodeURIComponent(window.location.href), 'mywindow', 'width=350,height=500');
 			}
 		});

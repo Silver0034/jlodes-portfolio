@@ -1,11 +1,14 @@
 ---
 interface Props {
-	minutes: number;
+	minutes: number|undefined;
 }
 
-const { minutes } = Astro.props;
+let { minutes } = Astro.props;
 
 // Round to nearest minute
+if (!minutes) {
+	minutes = 5;
+}
 let roundedMinutes = Math.round(minutes);
 
 // If over 5 minutes, round to nearest 5 minutes
