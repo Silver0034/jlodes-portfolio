@@ -4,7 +4,8 @@ import MouseFollowCanvas from "./MouseFollowCanvas.astro";
 <main id="content">
 	<slot />
 	<a id="back-to-top" href="#content" class="hidden hover-grow">
-		<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Scroll to top">
+		<span class="screen-reader-text">Scroll to top</span>
+		<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
 			<mask id="mask0_3_262" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="48" height="48">
 			<rect width="48" height="48" fill="currentColor"/>
 			</mask>
