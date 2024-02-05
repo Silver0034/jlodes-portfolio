@@ -81,7 +81,7 @@ Create a new PHP file in the `react-app` folder. I will be calling my file `inde
 if (!defined('ABSPATH')) die('No direct access permitted.');
 
 // Register the script
-ra_register_script() {
+function ra_register_script() {
 	// Register the script
 	wp_register_script(
 		'react-app',
@@ -94,7 +94,7 @@ ra_register_script() {
 add_action('wp_enqueue_scripts', 'ra_register_script');
 
 // Register the styles
-ra_register_styles() {
+function ra_register_styles() {
 	// Register the styles
 	wp_register_style(
 		'react-app',
@@ -109,8 +109,8 @@ add_action('wp_enqueue_scripts', 'ra_register_styles');
 // Register the shortcode
 function ra_register_shortcode() {
 	add_shortcode(
-		'ee-olo-ordering',
-		[$this, 'ra_render_shortcode']
+		'ra-react-app',
+		'ra_render_shortcode'
 	);
 }
 add_action('init', 'ra_register_shortcode');
