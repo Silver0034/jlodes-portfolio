@@ -1,6 +1,6 @@
 ---
 title: 'Running a React App Through WordPress'
-description: ''
+description: 'A quick tutorial on how I ran React on a WordPress page.'
 pubDate: 'Jan 26 2024'
 heroImage: '/post-assets/react+wordpress.png'
 ---
