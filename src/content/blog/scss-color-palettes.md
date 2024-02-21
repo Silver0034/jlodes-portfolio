@@ -1,5 +1,5 @@
 ---
-title: 'Programatically Generate Color Palettes with SCSS'
+title: 'Programmatically Generate Color Palettes with SCSS'
 description: 'How I used SCSS to generate the color palette for my portfolio website.'
 pubDate: 'Feb 20 2024'
 heroImage: '/post-assets/color-palette-thumbnail.png'
@@ -22,7 +22,7 @@ I also wanted to make sure I had a good range of nearly white and nearly black c
 
 ## SCSS Functions and Maps
 
-To get this to work, I used a SASS function to generate the color palette, and within the function utilitzed a SASS map to keep track of shades and hues.
+To get this to work, I used a SASS function to generate the color palette, and within the function utilized a SASS map to keep track of shades and hues.
 
 The function spits out a map of colors in HSL format, so they can be included in style rules as CSS variables with or without the alpha channel.
 
@@ -42,7 +42,7 @@ $palette: createPalette(20, 90%, 45%);
 
 SASS maps are a great way to store key-value pairs. My `createPalette()` function returns a map with the keys 'primary', 'secondary', 'lighter', 'light', 'dark', and 'darker'. Each of these keys has a value that is that color in HSL format.
 
-In order to use a SASS map, you will have to include it's featureset in your stylesheet.
+In order to use a SASS map, you will have to include it's feature set in your stylesheet.
 
 ```scss
 @use 'sass:map';
@@ -113,7 +113,7 @@ Below is an example of a square with an opaque background, and another with a 50
     }
     ```
 
-4. Next, I need to define the lightness values I want to apply to the primary color to create my light, lighter, dark, and darker colors. You can set these up to add and subtract from the lightness like the hue steps, but I found that it made the most sense for me to choose lightness values that were static so I always end up with a nearly white, offwhite, nearly black, and dark gray color.
+4. Next, I need to define the lightness values I want to apply to the primary color to create my light, lighter, dark, and darker colors. You can set these up to add and subtract from the lightness like the hue steps, but I found that it made the most sense for me to choose lightness values that were static so I always end up with a nearly white, off-white, nearly black, and dark gray color.
 
     I prefer when my lighter colors are really close to white and for my darker colors to be a bit lighter so more of the tint is visible, so I chose 98% for my lighter color (which I use primarily for backgrounds) and 18% for my darker color. I then chose 90% for my light color and 10% for my dark color.
 

@@ -117,7 +117,7 @@
 				if (!triggerSibling) return;
 				triggerSibling.classList.toggle("active");
 				// set focus to first 
-				const firstButton = document.querySelector(".shareOptions .copy");
+				const firstButton = document.querySelector(".shareOptions .copy") as HTMLElement;
 				if (!firstButton) return;
 				firstButton.focus();
 			} else {
