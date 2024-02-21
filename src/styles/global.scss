@@ -1,57 +1,11 @@
-@use 'sass:color';
 @use 'sass:map';
-
-@function createPalette($hue, $saturation, $lightness) {
-	$hueSteps: (
-		'primary': 0,
-		'secondary': 30,
-		'tertiary': 180
-	);
-
-	$palette: ();
-
-	@each $name, $newHue in $hueSteps {
-		$palette: map.merge(
-			$palette,
-			(
-				$name: (
-					$hue + $newHue % 360,
-					$saturation,
-					$lightness
-				)
-			)
-		);
-	}
-
-	$lightnessValues: (
-		'lighter': 98%,
-		'light': 90%,
-		'dark': 10%,
-		'darker': 18%
-	);
-
-	@each $name, $newLightness in $lightnessValues {
-		$palette: map.merge(
-			$palette,
-			(
-				$name: (
-					$hue,
-					$saturation,
-					$newLightness
-				)
-			)
-		);
-	}
-
-	@return $palette;
-}
+@use './color-palette.scss' as *;
 
 $palette: createPalette(20, 90%, 45%);
 
 :root {
 	--color-primary: #{map.get($palette, 'primary')};
 	--color-secondary: #{map.get($palette, 'secondary')};
-	--color-tertiary: #{map.get($palette, 'tertiary')};
 	--color-darker: #{map.get($palette, 'darker')};
 	--color-dark: #{map.get($palette, 'dark')};
 	--color-light: #{map.get($palette, 'light')};
@@ -104,10 +58,6 @@ body {
 	height: 100%;
 }
 
-:root {
-	background-color: hsl(var(--color-lighter));
-}
-
 body {
 	display: flex;
 	flex-direction: column;
@@ -116,7 +66,8 @@ body {
 	padding: 0;
 	text-align: left;
 	background: var(--gradient) no-repeat;
-	background-size: 100% 100vh;
+	background-color: hsl(var(--color-lighter));
+	// background-size: cover;
 	word-wrap: break-word;
 	overflow-wrap: break-word;
 	text-wrap: pretty;
@@ -216,7 +167,7 @@ b {
 }
 
 a {
-	color: hsl(var(--color-primary));
+	color: hsl(var(--color-secondary));
 	text-decoration-thickness: 0.1em;
 	text-underline-offset: 0.2em;
 	transition: color 0.2s ease-in-out,
@@ -231,6 +182,23 @@ a:focus {
 
 a:focus {
 	outline: 1px solid hsl(var(--color-primary));
+}
+
+button {
+	background-color: hsla(var(--color-primary), 20%);
+	padding: 0.5em 1em;
+	border-radius: 0.25em;
+	border: 1px solid hsl(var(--color-primary));
+	color: hsl(var(--color-darker));
+	transition: transform 0.1s var(--bounce-transition);
+	margin: 0.25em;
+	cursor: pointer;
+
+	&:hover,
+	&:focus {
+		background-color: hsl(var(--color-lighter));
+		transform: scale(0.95);
+	}
 }
 
 @keyframes bounce-underline {
@@ -279,7 +247,7 @@ blockquote {
 }
 hr {
 	border: none;
-	border-top: 1px solid hsl(var(--color-secondary));
+	border-top: 1px solid hsl(var(--color-primary));
 }
 @media (max-width: 720px) {
 	body {

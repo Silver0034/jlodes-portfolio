@@ -1,6 +1,6 @@
 ---
 title: "A Love Letter to Internet Archive's WayBack Machine"
-description: ''
+description: 'A great tool for archiving and exploring web pages.'
 pubDate: 'Jan 23 2024'
 heroImage: '/post-assets/wayback-machine.png'
 ---
