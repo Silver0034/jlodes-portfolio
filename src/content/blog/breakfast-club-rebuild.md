@@ -5,6 +5,10 @@ pubDate: 'May 25, 2024'
 heroImage: '/post-assets/breakfast-club-astro.png'
 ---
 
+> Update: June 6, 2024
+>
+> The updated <a href="https://www.thebreakfastclubla.com/" target="_blank">Breakfast Club website (opens in a new tab)</a> built in Astro has successfully launched, and it is live for users to explore.
+
 ## What is The Breakfast Club of LA
 
 <a href="https://www.thebreakfastclubla.com/" target="_blank">"The Breakfast Club of LA" (Opens in a new tab)</a> is more than just a café; it's a culinary experience deeply rooted in the vibrant culture of Los Angeles. Founded by Earl Enterprises, it has become an iconic destination for influencers and locals alike, offering a unique blend of flavors and atmospheres.
