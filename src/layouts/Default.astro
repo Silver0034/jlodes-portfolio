@@ -1,0 +1,15 @@
+---
+// Import components
+import '@components/Fonts.astro'
+import Head from '@components/Head.astro'
+
+const { title, description, image } = Astro.props
+---
+
+<!doctype html>
+<html lang='en'>
+	<Head title={title} description={description} image={image} />
+	<body>
+		<slot />
+	</body>
+</html>

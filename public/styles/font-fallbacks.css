@@ -1,0 +1,33 @@
+@font-face {
+  font-family: "Carter One Fallback: Arial";
+  src: local('Arial'), local('ArialMT');
+  font-display: swap;
+  ascent-override: 100.4272%;
+  descent-override: 39.4789%;
+  line-gap-override: 0%;
+  size-adjust: 110.0767%;
+}
+@font-face {
+  font-family: "Carter One Fallback: Roboto";
+  src: local('Roboto'), local('Roboto-Regular');
+  font-display: swap;
+  ascent-override: 100.2072%;
+  descent-override: 39.3924%;
+  size-adjust: 110.3183%;
+}@font-face {
+  font-family: "Oxygen Fallback: Arial";
+  src: local('Arial'), local('ArialMT');
+  font-display: swap;
+  ascent-override: 101.573%;
+  descent-override: 23.3285%;
+  line-gap-override: 0%;
+  size-adjust: 101.0953%;
+}
+@font-face {
+  font-family: "Oxygen Fallback: Roboto";
+  src: local('Roboto'), local('Roboto-Regular');
+  font-display: swap;
+  ascent-override: 101.3505%;
+  descent-override: 23.2774%;
+  size-adjust: 101.3172%;
+}

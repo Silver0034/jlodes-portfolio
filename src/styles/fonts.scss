@@ -1,0 +1,20 @@
+@import '@public/styles/font-fallback.css';
+
+:root {
+    --font-body: Oxygen, 'Oxygen Fallback: Arial', 'Oxygen Fallback: Roboto';
+    --font-heading: 'Carter One', 'Carter One Fallback: Arial', 'Carter One Fallback: Roboto';
+}
+
+body, .font-body {
+    font-family: var(--font-body);
+}
+
+@for $i from 1 through 6 {
+    h#{$i}, .h#{$i} {
+        font-family: var(--font-heading);
+    }
+}
+
+.font-heading {
+    font-family: var(--font-heading);
+}

@@ -1,0 +1,70 @@
+@use 'sass:map';
+
+@function color($colorName, $opacity: 1) {
+	@if map-has-key($palettes, $colorName) {
+		$color: map-get($palettes, $colorName);
+
+		$hue: map-get($color, hue);
+		$saturation: map-get($color, saturation);
+		$lightness: map-get($color, lightness);
+
+		@if ($opacity == 1) {
+			@return hsl($hue, $saturation, $lightness);
+		} @else {
+			@return hsla($hue, $saturation, $lightness, $opacity);
+		}
+	}
+
+	@warn "unknown color: #{$colorName}";
+	@return null;
+}
+
+$palettes: (
+	text: (
+		hue: 51,
+		saturation: 6%,
+		lightness: 16%
+	),
+	background: (
+		hue: 52,
+		saturation: 100%,
+		lightness: 98%
+	),
+	primary: (
+		hue: 179,
+		saturation: 47%,
+		lightness: 42%
+	),
+	secondary: (
+		hue: 3,
+		saturation: 71%,
+		lightness: 54%
+	),
+	tertiary: (
+		hue: 34,
+		saturation: 83%,
+		lightness: 74%
+	),
+	quaternary: (
+		hue: 179,
+		saturation: 100%,
+		lightness: 18%
+	),
+	neutral: (
+		hue: 52,
+		saturation: 100%,
+		lightness: 94%
+	),
+	border: (
+		hue: 51,
+		saturation: 2%,
+		lightness: 42%
+	)
+);
+
+:root {
+	// Create a regular css variable for each color in the palette
+	@each $colorName, $color in $palettes {
+		--color-#{$colorName}: #{color($colorName)};
+	}
+}
